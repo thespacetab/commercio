@@ -1,5 +1,5 @@
 export const API_CONFIG = {
-  BASE_URL: 'http://localhost:8000/api',
+  BASE_URL: 'https://d7f085e45077.ngrok-free.app/api',
   ENDPOINTS: {
     SHOPS: '/shops',
     PRODUCTS: '/products',
