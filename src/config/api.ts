@@ -1,5 +1,5 @@
 export const API_CONFIG = {
-  BASE_URL: 'https://d7f085e45077.ngrok-free.app/api',
+  BASE_URL: 'https://950cd42148ae.ngrok-free.app/api',
   ENDPOINTS: {
     SHOPS: '/shops',
     PRODUCTS: '/products',
