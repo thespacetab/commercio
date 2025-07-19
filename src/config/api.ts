@@ -1,5 +1,6 @@
+// Обновлено для теста git push
 export const API_CONFIG = {
-  BASE_URL: 'http://localhost:8000/api',
+  BASE_URL: 'https://950cd42148ae.ngrok-free.app/api',
   ENDPOINTS: {
     SHOPS: '/shops',
     PRODUCTS: '/products',
