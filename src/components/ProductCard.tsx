@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../types';
 import { useCart } from '../contexts/CartContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 import './ProductCard.css';
 
 interface ProductCardProps {
@@ -11,6 +12,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -18,9 +20,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="product-card">
+    <div className="product-card" onClick={() => navigate(`/product/${product.id}`)} style={{ cursor: 'pointer' }}>
       <img src={product.img} alt={product.title} className="product-img" />
-      <div className="product-info">
+      <div className="product-info" onClick={e => e.stopPropagation()}>
         <div className="product-title">{product.title}</div>
         <div className="product-meta">
           <span className="product-price">{product.price.toLocaleString()} ₽</span>

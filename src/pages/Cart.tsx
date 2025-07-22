@@ -17,14 +17,13 @@ const Cart: React.FC = () => {
   >(apiService.checkout);
 
   const handleCheckout = async () => {
-    // Преобразуем товары корзины в формат для API
     const checkoutItems = cart.map(item => ({
       product_id: typeof item.id === 'string' ? parseInt(item.id) : item.id,
       qty: item.qty
     }));
 
     const checkoutData: CheckoutRequest = {
-      buyer_id: 1, // Временный ID покупателя, в реальном приложении брать из авторизации
+      buyer_id: 1,
       items: checkoutItems
     };
 
@@ -42,7 +41,7 @@ const Cart: React.FC = () => {
     return (
       <div className="cart-page">
         <div className="cart-empty">
-          <img src="/assets/icons/grocery-store.png" alt="Пусто" className="cart-empty-icon" />
+          <img src="/shop/commercio-cart.png" alt="Пусто" className="cart-empty-banner" />
           <div className="cart-empty-text">{t('cart-empty')}</div>
         </div>
       </div>
@@ -51,6 +50,13 @@ const Cart: React.FC = () => {
 
   return (
     <div className="cart-page">
+      <div className="cart-banner">
+        <img src="/shop/commercio-cart.png" alt="Корзина баннер" className="cart-banner-img" />
+        <div className="cart-banner-content">
+          <h2>Ваша корзина</h2>
+          <p>Проверьте товары и оформите заказ</p>
+        </div>
+      </div>
       <div className="cart-list">
         {cart.map((item) => (
           <div key={item.id} className="cart-item">

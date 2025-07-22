@@ -74,6 +74,10 @@ class ApiService {
     });
   }
 
+  async getProductById(productId: number): Promise<ApiResponse<Product>> {
+    return this.request<Product>(getApiUrl(`${API_CONFIG.ENDPOINTS.PRODUCTS}/${productId}`));
+  }
+
   // Orders API
   async getOrdersByBuyer(buyerId: number): Promise<ApiResponse<OrderWithItems[]>> {
     return this.request<OrderWithItems[]>(getApiUrl(`${API_CONFIG.ENDPOINTS.ORDERS}/${buyerId}`));
